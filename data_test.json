@@ -1,0 +1,20 @@
+[
+  {"id":0,"location":"Varniţa","type":"freezer","device_health":"broken","last_used":"10/10/2018","price":"79.00","color":"#541738"},
+  {"id":1,"location":"Lobanovo","type":"cycler","device_health":"good","last_used":"01/31/2019","price":"46.00","color":"#1d3b57"},
+  {"id":2,"location":"Mhāsvād","type":"shaker","device_health":"ok","last_used":"03/25/2019","price":"68.00","color":"#216855"},
+  {"id":3,"location":"Makinsk","type":"pipette","device_health":"mediocre","last_used":"11/17/2018","price":"43.00","color":"#161040"},
+  {"id":4,"location":"Santo Domingo","type":"pipette","device_health":"ok","last_used":"06/30/2019","price":"24.00","color":"#3a2265"},
+  {"id":5,"location":"Saint-Lary-Soulan","type":"pipette","device_health":"mediocre","last_used":"04/07/2019","price":"43.00","color":"#1d3c76"},
+  {"id":6,"location":"Kadirli","type":"shaker","device_health":"mediocre","last_used":"01/22/2019","price":"16.00","color":"#71152c"},
+  {"id":7,"location":"Xianxi","type":"shaker","device_health":"broken","last_used":"08/23/2019","price":"85.00","color":"#2a1b4b"},
+  {"id":8,"location":"Marine City","type":"freezer","device_health":"good","last_used":"01/27/2019","price":"32.00","color":"#1a1402"},
+  {"id":9,"location":"Geelong","type":"pipette","device_health":"mediocre","last_used":"06/14/2019","price":"91.00","color":"#7e2e16"},
+  {"id":10,"location":"Sop Pong","type":"freezer","device_health":"bad","last_used":"11/03/2018","price":"88.00","color":"#53645d"},
+  {"id":11,"location":"El Dividive","type":"pipette","device_health":"ok","last_used":"05/23/2019","price":"23.00","color":"#544724"},
+  {"id":12,"location":"Olbramovice","type":"shaker","device_health":"broken","last_used":"09/04/2018","price":"31.00","color":"#0c0a76"},
+  {"id":13,"location":"Sajószöged","type":"shaker","device_health":"ok","last_used":"11/21/2018","price":"48.00","color":"#2f4316"},
+  {"id":14,"location":"San Juan Mixtepec","type":"cycler","device_health":"broken","last_used":"10/10/2018","price":"1.00","color":"#684214"},
+  {"id":15,"location":"Berne","type":"shaker","device_health":"mediocre","last_used":"02/28/2019","price":"62.00","color":"#172f7a"},
+  {"id":16,"location":"Lassnitzhöhe","type":"freezer","device_health":"mediocre","last_used":"07/25/2019","price":"49.00","color":"#321114"},
+  {"id":17,"location":"Sequeros","type":"cycler","device_health":"mediocre","last_used":"07/08/2019","price":"83.00","color":"#72207b"}
+]
