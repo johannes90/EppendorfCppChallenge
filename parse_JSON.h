@@ -66,9 +66,9 @@ public:
 
 // Namespace to complete the task of parsing a JSON file with multiple devices and its attributes to Yaml
 // and performing operations on these Devices and their attributes
-class JsonParser //TODO: make that namespace
+class JsonParser //TODO: make that a namespace
 {   
-public:
+public:// TODO: i just use a class because i could not figure out some errors related to the namespace therefore made it a class and everything public
 
     rapidjson::Document json_document_;
 
@@ -76,7 +76,6 @@ public:
     
     ~JsonParser();
     
-
     // Container to store all Devices of the JSON file 
     //std::vector<Device> Devices; // TODO: how can i use that as return type in inspect_devices
 
@@ -84,58 +83,5 @@ public:
     static bool compare_Date(const Device& first, const Device& second);
 
     // Function to loop over all Devices of the JSON file, calling functions on them
-    std::vector<Device> inspect_Devices(); //TODO: use rapidjson::Document json_document;
-
-/*
-    struct Date
-    {   
-        int year;
-        int month;
-        int day;
-    };
-
-    struct HSV_Color
-    {
-        int Hue;
-        int Sat;
-        int Val;
-    };*/
+    std::vector<Device> inspect_Devices(); 
 };
-
-
-//#include rapidyaml
-// TODO: get the rapidyaml library to work 
-
-
-/*
-    Type declarations
-*/
-/*
-struct JSON_data_structure  
-{
-    int ID;
-    std::string location;
-    std::string type;
-    std::string device_health;
-    std::string last_used;
-    std::string price;
-    std::string color;
-};
-*/
-
-
-/*
-Function declarations 
-*/
-// adds "€" sign to price field
-//void set_price(JSON_data_structure &data, std::string price);
-
-//int hex2dec(std::string hex);
-
-//std::string RGB2HSV(std::string rgb);
-
-//void set_color(JSON_data_structure &data, std::string color);
-
-//bool compare_Date(const JSON_data_structure& first, const JSON_data_structure& second);
-
-//std::vector<JSON_data_structure> inspect_JSON(rapidjson::Document &doc);

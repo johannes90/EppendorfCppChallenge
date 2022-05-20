@@ -27,15 +27,52 @@
 
 
 int main() {
-
-    // 
-    JsonParser jsonparser("data_test.json");
+    std::string file = "data_test.json";
+    JsonParser jsonparser(file);
     
     std::vector<Device> JSON_data_vector = jsonparser.inspect_Devices();
 
     std::sort(std::begin(JSON_data_vector), std::end(JSON_data_vector), JsonParser::compare_Date);
 
-    // TODO: save data as yaml file -> 
+    // TODO: because saving as yaml does not yet work the following is a workaround to show how the rest works:
+    // therefore it is not beautifull and all hardcoded.. 
+    std::cout << "First few lines of original JSON file content:" << std::endl; 
+    std::string line;
+    std::ifstream filestream(file);
+    if (filestream.is_open()) {
+        while (std::getline(filestream, line)) {
+            
+            std::cout << line << std::endl;
+            //std::istringstream linestream(line);
+        }
+    }
+
+    // Altered file
+    std::cout << std::endl << "First few lines of altered file content:" << std::endl; 
+    std::string date;
+    std::string YYYY;
+    std::string MM;
+    std::string DD;
+    for(Device device: JSON_data_vector)
+    {
+        
+        date = std::to_string(device.get_last_used().month) + "/" + std::to_string(device.get_last_used().day) + "/" + std::to_string(device.get_last_used().year);
+
+        std::cout << "ID: " << device.get_id() 
+        << ", location: " << device.get_location() 
+        << ", type: " << device.get_type()
+        << ", device_health: " << device.get_device_health()
+        << ", last_used: " << date
+        << ", price: " << device.get_price()
+        << ", color: " << device.get_color() 
+        << std::endl;
+    }
+
+      
+  
+
+
+    // TODO: save data as yaml file
     /*
     std::vector<char> input({ 'a', 'b', 'c' });
     std::string s(input.begin(), input.end()); //vector -> string
@@ -62,11 +99,3 @@ int main() {
     
     return 0;
 }
-
-/*
-YAML: 
----
-- ()
-
-
-*/
