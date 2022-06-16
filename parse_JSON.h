@@ -16,11 +16,31 @@
 #include "./rapidjson/ostreamwrapper.h"
 
 
-struct Date// TODO: put in namespace
+class Date// TODO: put in namespace
     {   
-        int year;
-        int month;
-        int day;
+        public:
+        int year_;
+        int month_;
+        int day_;
+
+        // constructor, destructor
+        Date(int year, int month, int day);
+        Date(std::string date_string);
+        Date();
+        ~Date();
+        
+        // getters
+        // TODO:
+
+
+        // setters
+        //TODO:
+
+        // overload < operator  
+        bool operator<(const Date other_date) const;
+
+        // overload operator >
+        bool operator>(const Date other_date) const;
     };
 
 class Device
@@ -34,6 +54,7 @@ private:
     Date last_used_;
     std::string price_;
     std::string color_; //TODO:  struct HSV_Color
+    
 
 public:
     Device(int id, std::string location, std::string type, std::string device_health, std::string last_used, std::string price, std::string color);
@@ -60,7 +81,6 @@ public:
     // Other class methods
     std::string RGB2HSV(std::string rgb); //TODO: do not have to be a class method
     int hex2dec(std::string hex);         //TODO: do not have to be a class method
-    Date string2Date(std::string date_string);
 
 };
 
@@ -71,7 +91,7 @@ class JsonParser //TODO: make that a namespace
 public:// TODO: i just use a class because i could not figure out some errors related to the namespace therefore made it a class and everything public
 
     rapidjson::Document json_document_;
-
+    
     JsonParser(std::string file_name);
     
     ~JsonParser();
@@ -81,6 +101,8 @@ public:// TODO: i just use a class because i could not figure out some errors re
 
     // Function to be used in std::sort() to compare two "Device" objects according to their "last_used" date
     static bool compare_Date(const Device& first, const Device& second);
+
+    static bool compare_Devices_by_Date(const Device& first, const Device& second);
 
     // Function to loop over all Devices of the JSON file, calling functions on them
     std::vector<Device> inspect_Devices(); 

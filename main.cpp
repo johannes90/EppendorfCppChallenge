@@ -32,7 +32,7 @@ int main() {
     
     std::vector<Device> JSON_data_vector = jsonparser.inspect_Devices();
 
-    std::sort(std::begin(JSON_data_vector), std::end(JSON_data_vector), JsonParser::compare_Date);
+    std::sort(std::begin(JSON_data_vector), std::end(JSON_data_vector), JsonParser::compare_Devices_by_Date);
 
     // TODO: because saving as yaml does not yet work the following is a workaround to show how the rest works:
     // therefore it is not beautifull and all hardcoded.. 
@@ -56,7 +56,7 @@ int main() {
     for(Device device: JSON_data_vector)
     {
         
-        date = std::to_string(device.get_last_used().month) + "/" + std::to_string(device.get_last_used().day) + "/" + std::to_string(device.get_last_used().year);
+        date = std::to_string(device.get_last_used().month_) + "/" + std::to_string(device.get_last_used().day_) + "/" + std::to_string(device.get_last_used().year_);
 
         std::cout << "ID: " << device.get_id() 
         << ", location: " << device.get_location() 

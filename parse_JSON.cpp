@@ -12,52 +12,117 @@ JsonParser::JsonParser(std::string file_name)
 
 JsonParser::~JsonParser(){}
 
-// Function to be used in std::sort() to compare two "Device" objects according to their "last_used" date
-bool JsonParser::compare_Date(const Device& first, const Device& second)
+//constructor, destructor for Date class
+Date::Date(int year, int month, int day)
 {
-    // return true -> first less than second -> ordered before (date first junger than date second)
-    int year_first   = first.get_last_used().year;
-    int year_second  = second.get_last_used().year;
-    int day_first    = first.get_last_used().month;
-    int day_second   = second.get_last_used().month;
-    int month_first  = first.get_last_used().day;
-    int month_second = second.get_last_used().day;
+    year_  = year;
+    month_ = month; 
+    day_   = day;
+}
+Date::Date(std::string date_string)
+{
+    int year  = std::stoi(date_string.substr(6,4));
+    int month = std::stoi(date_string.substr(3,2));
+    int day   = std::stoi(date_string.substr(0,2));
 
-    if(year_first < year_second)
+    year_  = year;
+    month_ = month; 
+    day_   = day;
+}
+Date::Date() //TODO: error that default constructor is needed -> why? where?
+{
+    year_ = -1;
+    month_ = -1;
+    day_   = -1;
+}
+    
+Date::~Date(){}
+
+// Returns true if date < other_date, otherwise false (also if equal)
+bool Date::operator<(const Date other_date) const
+{   
+    if(year_ < other_date.year_)
     {
         return true;
     }
-    else if(year_first > year_second)
+    else if (year_ > other_date.year_)
     {
         return false;
     }
     else//same year
     {
-        if(month_first < month_second)
+        if(month_ < other_date.month_)
         {
             return true;
         }
-        else if(month_first > month_second)
+        else if(month_ > other_date.month_)
         {
             return false;
         }
         else//same month
         {
-            if(day_first < day_second)
+            if(day_ < other_date.day_)
             {
                 return true;
             }
-            else if(day_first > day_second)
+            else if(day_ > other_date.day_)
             {
                 return false;
             }
             else
             {   
-                //same date -> order not relevant therefore just pick "first"
-                return true;
+                // Case of equal dates: return false because date is NOT smaller than other_date
+                return false;
             }
         }
     }
+}
+
+bool Date::operator>(const Date other_date) const
+{
+    // TODO: could I do something like return 1 - (date < other_date) ? 
+    if(year_ > other_date.year_)
+    {
+        return true;
+    }
+    else if (year_ < other_date.year_)
+    {
+        return false;
+    }
+    else//same year
+    {
+        if(month_ > other_date.month_)
+        {
+            return true;
+        }
+        else if(month_ < other_date.month_)
+        {
+            return false;
+        }
+        else//same month
+        {
+            if(day_ > other_date.day_)
+            {
+                return true;
+            }
+            else if(day_ < other_date.day_)
+            {
+                return false;
+            }
+            else
+            {   
+                // Case of equal dates: return false because date is NOT smaller than other_date
+                return false;
+            }
+        }
+    }
+}
+
+//Function to be used in std::sort() to compare two "Device" objects according to their "last_used" date
+bool JsonParser::compare_Devices_by_Date(const Device& first, const Device& second)
+{
+    // return true -> first less than second -> ordered before (chronological order)
+    return (first.get_last_used() < second.get_last_used());
 }
 
 // Function to loop over all Devices of the JSON file, calling functions on them
@@ -67,7 +132,7 @@ std::vector<Device> JsonParser::inspect_Devices()
 
     assert(json_document_.IsArray());
 
-    // to extract the data from python object inside the loop
+    // to extract the data from json object inside the loop
     int         itr_ID;
     std::string itr_location;      
     std::string itr_type;          
@@ -134,7 +199,7 @@ void Device::set_device_health(std::string device_health){ Device::device_health
 void Device::set_last_used(std::string last_used)
 {
     // extract date from string
-    Device::last_used_= string2Date(last_used);
+    Device::last_used_= Date(last_used);
 }
 
 void Device::set_price(std::string price)
@@ -158,18 +223,6 @@ Date Device::get_last_used() const { return Device::last_used_; }
 std::string Device::get_price() const { return Device::price_; }
 std::string Device::get_color() const { return Device::color_; } //TODO:  struct HSV_Color
 
-
-// Other class methods
-Date Device::string2Date(std::string date_string)
-{
-    Date date;
-
-    date.year = std::stoi(date_string.substr(6,4));
-    date.month = std::stoi(date_string.substr(3,2));
-    date.day = std::stoi(date_string.substr(0,2));
-    
-    return date;
-}
 
 std::string Device::RGB2HSV(std::string rgb)
 {

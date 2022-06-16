@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	
+\usepackage{ngerman}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{reg}{Rule}
+\newtheorem{exer}{Exercise}
+\newtheorem{note}{Note}
+\begin{document}
+%\setcounter{section}{8}
+\title{Chapter 9 Review Notes}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf Dokumentation}\\
+{\large Eppendorf C++ Challenge}\\
+Mai 2022
+\end{center}
+
+
+\section{Einleitung}
+Diese Dokumentation soll dazu dienen die Bearbeitung der nachfolgenden Aufgabe zu beschreiben.
+Hierbei möchte ich darauf eingehen, wie meine grundlegende Vorgehensweise war und was für miche Schwierigkeiten darstellte. Da die Implementierung sechs bis acht Stunden dauern sollte, wird diese Dokumentation und kurz und eher formlos gehalten.
+
+\section{Aufgabe}
+\label{Aufgabenstellung}
+\begin{itemize}
+	\item Use the data in the provided data.json modify and write it back to a different file. Assume that the conversion may take long and use parallelization, where applicable.
+		\begin{itemize}
+			\item Convert the structure to yaml 
+			\item Convert the RGB color values to HSV color values 
+			\item Filter the list to drop devices with broken device health 
+			\item Sort the list by last\_used date 
+			\item Add the Euro sign to the price
+		\end{itemize}
+	\item It’s up to you what technologies/libraries/frameworks you use. The soft- ware should be runnable on an embedded device and you should be able to justify your decision.
+		\begin{itemize}
+			\item You can use external resources/libraries as you might need/want them.
+		\end{itemize}
+	\item Don’t concentrate on fully completing the task. Rather focus on clean and reasonable application and code structure keeping in mind that a project might need to scale regarding team and application size.
+	\item Don’t invest more than 6-8 hours on the implementation.
+	\item The project should be set up and versioned using a git repository, preferably using Github or similar to give us access to the repository when you are done.
+\end{itemize}
+
+\section{Vorgehensweise}
+\label{Vorgehensweise}
+Zunächst habe ich mir einen groben Plan gemacht, wie ich die Aufgabe bearbeiten würde.
+Ich wollte insgesamt möglichst viele bestehende Funktionalitäten nutzen, möglichst STL Algorithmen, falls vorhanden. Dies betrifft das Einlesen und Ausgeben des JSON, bzw. YAML Datenformat und die Manipulationsschritte
+
+
+\section{Schwierigkeiten}
+\subsection{Lernfelder}
+
+
+
+\end{document}
